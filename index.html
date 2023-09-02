@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexaDecimalColor</title>
+    <style>
+        body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            box-sizing: border-box;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container{
+           border: 0px solid black;
+            width: 600px;
+            padding: 50px;
+        }
+        .hexColor{
+            width: 200px;
+            height: 200px;
+            border: 2px solid purple;
+            margin: 0 auto;
+            border-radius: 30px;
+        }
+        .container button{
+            margin-top: 20px;
+        }
+        #result{
+            width: 130px;
+            height: auto;
+            background-color: aqua;
+            color: red;
+            margin: 20px auto;
+            padding: 5px;
+            display: none;
+            font-size: 30px;
+        }
+        .animated-box {
+        width: 400px;
+        height: 400px;
+        border: 5px solid #3498db;
+        border-radius: 10px;
+        animation: borderAnimation 2s infinite;
+        box-shadow: 0 0 10px gray;
+        background-color: #eeeeee;
+    }
+    
+    @keyframes borderAnimation {
+        0% {
+            border-color: #3498db;
+        }
+        25% {
+            border-color: #e74c3c;
+        }
+        50% {
+            border-color: #2ecc71;
+        }
+        75% {
+            border-color: #f1c40f;
+        }
+        100% {
+            border-color: #3498db;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container animated-box">
+        <h1>Generate Background</h1>
+        <div class="hexColor" id="HexaDecimalColor"></div>
+
+        <button id="btn">Generator Color</button>
+        <div id="result"></div>
+    </div>
+    <script>
+         var hexColorChange = document.getElementById("HexaDecimalColor");
+        var result = document.getElementById('result');
+
+        document.getElementById('btn').addEventListener('click' , function(){
+         var hexColor = "#" + Math.random().toString(16).slice(2 , 8).padEnd(6 , 0)
+            result.innerHTML=hexColor;
+            hexColorChange.style.backgroundColor=hexColor;
+            result.style.display="block";
+        }) 
+    </script>
+</body>
+</html>
